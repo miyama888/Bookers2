@@ -1,2 +1,27 @@
-<%= render 'users/list' %>
-<%=render 'users/user', users: @users %>
+
+<%=render 'users/user', user: @user, book: @book %>
+<div class = "table-visual">
+  
+  <h2>Users</h2>
+  <table>
+	 <thead>
+	   	<tr>
+	   		<th>image</th>
+	   		<th>name</th>
+		  	
+			 <th colspan="3"></th>
+		  </tr>
+	 </thead>
+
+    <tdody>
+      <% @users.each do |users|%>
+	      <tr>
+         <td><%= users.profile_image %></td>
+          <td><%= users.name %></td>
+
+          <td><%= link_to "Show", book_path(users.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
