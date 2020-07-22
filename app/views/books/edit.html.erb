@@ -1,0 +1,39 @@
+<h2>Editing Book</h2>
+<%= form_for(@book) do |f| %>
+
+    <% if @book.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(book.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+        <ul>
+          <% book.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class = "field">
+      <div class="field_with_errors">
+        <label>Title</label>
+      </div>
+      <div class="field_with_errors">
+        <%= f.text_field :title %><br>
+      </div>
+    </div>
+
+    <div class = "field">
+      <div class="field_with_errors">
+    <label>Opinion</label>
+      </div>
+      <div class="field_with_errors">
+        <%= f.text_area :body %>
+      </div>
+    </div>
+
+    <br><%= f.submit 'Update Book' %></br>
+    <% end %>
+
+    <%= link_to "Show", book_path(@book) %>
+ |
+	<%= link_to "Back", books_path %>

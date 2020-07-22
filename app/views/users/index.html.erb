@@ -16,10 +16,10 @@
     <tdody>
       <% @users.each do |users|%>
 	      <tr>
-         <td><%= users.profile_image %></td>
+         <td><%= attachment_image_tag users, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
           <td><%= users.name %></td>
 
-          <td><%= link_to "Show", book_path(users.id) %></td>
+          <td><%= link_to "Show", user_path(users.id) %></td>
         </tr>
       <% end %>
     </tbody>

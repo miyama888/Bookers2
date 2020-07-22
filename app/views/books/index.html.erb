@@ -1,39 +1,20 @@
-<section class="sct-color-1 slice">
-  <div class="container-fluid masonry-container">
-    <div class="row">
-      <div class="col-md-8 col-sm-offset-2">
-        <div class="masonry-wrapper-cols">
-          <div class="masonry-gutter"></div>
-          <% @books.each do |book| %>
-            <div class="masonry-block">
-              <div class="block block-image v1">
-                <div class="block-image">
-                  <div class="view view-first">
-                   <!--  <%= attachment_image_tag post_image, :image %>
-                  </div>
-                </div>
-                <div class="block-content">
-                  <%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb") %> -->
-                  <h3 class="block-title">
-                    <%= link_to book_path(book.id) do %>
-                      <!-- <i class="fa fa-map-marker"></i><%= post_image.book_title %> -->
-                    <% end %>
-                  </h3>
-                  <p><%= book.title %></p>
-                  <ul class="inline-meta">
-                    <li>By
-                      <%= book.user.name %>
-                    </li>
-                    <li>
-                      <a href="#">23 コメント</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<%=render 'users/user', user: @user, book: @book %>
+<h2>Books</h2>
+<table>
+  <thead>
+    <th></th>
+    <th>Title</th>
+    <th>Opinion</th>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+  <tr>
+
+    <td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+    <td><%=link_to book_path(book.id) do%><%= book.title %><% end %></td>
+    <td><%= book.body %></td>
+    <% end %>
+  </tr>
+  </tbody>
+</table>
+

@@ -1,12 +1,15 @@
 class ApplicationController < ActionController::Base
-	before_action :authenticate_user!,except: [:top] #ログインしていなければログイン画面へリダイレクト
+	before_action :authenticate_user!,except: [:top, :about] #ログインしていなければログイン画面へリダイレクト
 
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
  def after_sign_in_path_for(resource)
      user_path(current_user) # ログイン後に遷移するpathを設定
   	end
-  	
+
+def after_sign_out_path_for(resource)
+    root_path # ログアウト後に遷移するpathを設定
+  end
 
 
   protected

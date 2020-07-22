@@ -2,14 +2,19 @@ class UsersController < ApplicationController
   def top
   end
 
-
+  def about
+    render :about
+  end
 
 	def create
     	@user = User.new(user_params)
     	@user.user_id = current_user.id
-    	@user.save
-    	redirect_to user_path  
+    	if @user.save
+    	redirect_to user_path
+    else
+      redirect_to books_path
 	end
+end
 
   def index
   	@user = current_user
@@ -20,7 +25,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @book = Book.new
-    @books = Book.all
+    @books = @user.books.all
   end
 
   def edit
