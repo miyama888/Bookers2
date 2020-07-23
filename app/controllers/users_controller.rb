@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+
+  before_action :correct_user, only: [:edit, :update]
+
   def top
+    @book = Book.new
   end
 
   def about
@@ -12,7 +16,7 @@ class UsersController < ApplicationController
     	if @user.save
     	redirect_to user_path
     else
-      redirect_to books_path
+      render :show
 	end
 end
 
@@ -30,9 +34,11 @@ end
 
   def edit
   @user = User.find(params[:id])
+  @book = Book.new
   end
 
   def update
+    @book =Book.new
     @user = User.find(params[:id])
     if @user.update(user_params)
     redirect_to user_path
@@ -44,5 +50,13 @@ end
   private
   def user_params
     params.require(:user).permit( :name, :profile_image, :introduction)
+  end
+
+
+  def correct_user
+    user = User.find(params[:id])
+    if current_user != user
+      render :edit
+    end
   end
 end
