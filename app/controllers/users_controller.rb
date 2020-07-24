@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     	@user = User.new(user_params)
     	@user.user_id = current_user.id
     	if @user.save
-    	redirect_to user_path
+    	redirect_to user_path 
     else
       render :show
 	end
@@ -35,14 +35,13 @@ end
   def edit
   @user = User.find(params[:id])
   @book = Book.new
-  
   end
 
   def update
     @book =Book.new
     @user = User.find(params[:id])
     if @user.update(user_params)
-    redirect_to user_path
+      redirect_to user_path notice: "You have updated user successfully."
     else
       render :edit
     end
