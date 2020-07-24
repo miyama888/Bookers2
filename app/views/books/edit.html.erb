@@ -1,5 +1,6 @@
-<body>
-
+<div class = "container">
+<div class = "row">
+<div class = "col-md-6 col-md-offset-3">
 <h2>Editing Book</h2>
 
 <%= form_for(@book) do |f| %>
@@ -11,31 +12,35 @@
         <ul>
           <% @book.errors.full_messages.each do |message| %>
             <li><%= message %></li>
+          </ul>
           <% end %>
           <% end %>
 
     <div class = "field">
-      <div class="field_with_errors">
+      
         <label>Title</label>
-      </div>
-      <div class="field_with_errors">
-        <%= f.text_field :title %><br>
+      
+      <div class="field row">
+        <%= f.text_field :title,class: "col-xs-12" %><br>
       </div>
     </div>
 
     <div class = "field">
-      <div class="field_with_errors">
     <label>Opinion</label>
       </div>
-      <div class="field_with_errors">
-        <%= f.text_area :body %>
+      <div class= "field row">
+        <%= f.text_area :body, class: "col-xs-12" %>
       </div>
     </div>
-
-    <br><%= f.submit 'Update Book' %></br>
+    <div class = "actions row">
+    <%= f.submit 'Update Book', class: "btn btn-primary col-xs-12" %>
+  </div>
     <% end %>
 
     <%= link_to "Show", book_path(@book) %>
  |
 	<%= link_to "Back", books_path %>
-</body>
+</div>
+<div class = "col-md-3"></div>
+</div>
+</div>

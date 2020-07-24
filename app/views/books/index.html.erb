@@ -9,17 +9,24 @@
         </ul>
       </div>
       <% end %>
+
+
 <div class="container">
   <div class="row">
+    
 <%=render 'users/user', user: @user, book: @book %>
+
+
+<div class="col-xs-9">
 <h2>Books</h2>
 
 
-<table>
+<table class="table table-hover table-inverse">
   <thead>
     <th></th>
     <th>Title</th>
     <th>Opinion</th>
+    <th colspan="3"></th>
   </thead>
   <tbody>
   <% @books.each do |book| %>
@@ -31,5 +38,6 @@
   </tr>
   </tbody>
 </table>
+</div>
 </div>
 </div>

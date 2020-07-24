@@ -18,33 +18,87 @@
 
 header{
 	    color: white;
-        display: block;
 }
-.body{
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333333;
-    background-color: #fff;
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
 }
+
+header .navbar-left span {
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+
 .container{
-	width: 750px;
 	margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
 }
+
+a:visited {
+    color: #666;
+}
+div {
+    display: block;
+}
+
 .container:befor{
 	content: " ";
     display: table;
 }
+
 .container:after{
 	content: " ";
     display: table;
 }
-.div{
-	display: block;
+
+element.style {
+}
+div.field, div.actions {
+    margin-bottom: 10px;
+}
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+    float: left;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block;
+}
+
+.navbar-inverse {
+    background-color: #222;
+    border-color: #090909;
+}
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.notice {
+  color: green;
+}
+#error_explanation {
+    color: red;
+}
+p {
+    margin: 0 0 10px;
 }

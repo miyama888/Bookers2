@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   
   
   def after_sign_in_path_for(resource)
-    flash[:notice] = "Welcome! You have signed up successfully."
+    flash[:notice] = "Signed in successfully. Welcome! You have signed up successfully."
     user_path(current_user)  # ログイン後に遷移するpathを設定
   end
 
