@@ -1,35 +1,29 @@
 <div class = "container">
   <div class="row">
-<%=render 'users/user', user: @user, book: @book %>
-<div class="col-xs-9">
-
-<body>
-<div class = "table-visual">
-
-  <h2>Users</h2>
-  <table class= "table table-hover table-inverse">
-	 <thead>
-	   	<tr>
-
-	   		<th>image</th>
-	   		<th>name</th>
-
-			 <th colspan="3"></th>
-		  </tr>
-	 </thead>
-
-    <tbody>
-      <% @users.each do |users|%>
-	      <tr>
-         <td><%= attachment_image_tag users, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg" %></td>
-          <td><%= users.name %></td>
-
-          <td><%= link_to "Show", user_path(users.id) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <%=render 'users/user', user: @user, book: @book %>
+    <div class="col-xs-9">
+      <body>
+      <div class = "table-visual">
+        <h2>Users</h2>
+        <table class= "table table-hover table-inverse">
+	       <thead>
+          <tr>
+	   		    <th>image</th>
+	   		    <th>name</th>
+			       <th colspan="3"></th>
+		      </tr>
+	       </thead>
+         <tbody>
+            <% @users.each do |users|%>
+	         <tr>
+              <td><%= attachment_image_tag users, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg" %></td>
+              <td><%= users.name %></td>
+              <td><%= link_to "Show", user_path(users.id) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </dody>
   </div>
-</dody>
-</div>
 </div>
