@@ -4,14 +4,13 @@ before_action :correct_user, only: [:edit, :update]
 
   def edit
     @book = Book.find(params[:id])
+
   end
 
 def update
-    
-    @books =Book.all
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      redirect_to book_path(@book.id), notice: "Book was successfully updated."
+      redirect_to book_path(@book), notice: "Book was successfully updated."
     else
       render :edit
     end
@@ -19,20 +18,21 @@ end
 
   def create
     @book = Book.new(book_params)
-  	@book.user_id =current_user.id
+    @book.user_id =current_user.id
+  	@user =current_user
+    @books =Book.all
   	if @book.save
       flash[:notice] = "You have creatad book successfully."
       redirect_to book_path(@book)
     else
-      redirect_to books_path(@book)
+      render :index
     end
   end
 
   def index
     @book = Book.new
     @user = current_user
-  	@books =Book.all
-
+  	@books = Book.all
   end
 
   def show
