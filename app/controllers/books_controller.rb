@@ -36,6 +36,7 @@ end
   end
 
   def show
+    @booker =Book.new
   	@book = Book.find(params[:id])
     @user = @book.user
     @books = Book.all
