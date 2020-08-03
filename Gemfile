@@ -65,3 +65,7 @@ gem "refile-mini_magick"
 gem 'rename'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+gem 'capybara', '>= 2.15'
+gem 'rspec-rails'
+gem "factory_bot_rails"
+gem 'faker'
