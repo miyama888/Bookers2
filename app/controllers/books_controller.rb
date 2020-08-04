@@ -33,7 +33,6 @@ end
     @book = Book.new
     @user = current_user
   	@books = Book.all
-    @book_comments = @book.book_comments
   end
 
   def show
