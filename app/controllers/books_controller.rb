@@ -33,6 +33,7 @@ end
     @book = Book.new
     @user = current_user
   	@books = Book.all
+    @book_comments = @book.book_comments
   end
 
   def show
@@ -40,6 +41,7 @@ end
   	@book = Book.find(params[:id])
     @user = @book.user
     @books = Book.all
+    @book_comment = BookComment.new
   end
 
 def destroy
