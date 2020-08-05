@@ -12,11 +12,40 @@
   	 <th>introduction</th>
   	 <th><p class = "profile-introduction"><%= user.introduction %></p></th>
     </tr>
+
+      <% @user ||= current_user %>
+    <tr>
+      <th>
+        <p>follows</p>
+      </th>
+     <th>
+        <a href="<%= followings_user_path(@user) %>">
+        <strong id="followings" class="stat">
+        <%= @user.followings.count %>
+        </strong>
+        </a>
+     </th>
+    </tr>
+    <tr>
+      <th>
+        <p>followers</p>
+      </th>
+     <th>
+        <a href="<%= followers_user_path(@user) %>">
+        <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+        </strong>
+        </a>
+      </th>
+    </tr>
     </table>
   </div>
+  <% if  @user.id == current_user.id %>
   <p><%= link_to "", edit_user_path(user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %></p>
-
-
+<% end %>
+<div class = "follow">
+  <%= render 'relationships/follow', user: @user %>
+</div>
   <div class = "new book">
 	<h2>New book</h2>
   <%= form_for(book, url: books_path) do |f| %>

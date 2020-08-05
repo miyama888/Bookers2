@@ -18,6 +18,27 @@
 	         <tr>
               <td><%= attachment_image_tag users, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img pull-left profile-img", fallback: "no_image.jpg" %></td>
               <td><%= users.name %></td>
+
+              <% users ||= current_user %>
+              <td>
+                <a>
+                フォロー数:
+                <strong id="followings" class="stat">
+                <%= users.followings.count %>
+                </strong>
+                </a>
+              </td>
+
+              <td>
+                <a>
+                フォロワー数:
+                <strong id="followers" class="stat">
+                <%= users.followers.count %>
+                </strong>
+                </a>
+              </td>
+
+              <td><%= render 'relationships/users_follow', user: users %></td>
               <td><%= link_to "Show", user_path(users.id) %></td>
             </tr>
             <% end %>

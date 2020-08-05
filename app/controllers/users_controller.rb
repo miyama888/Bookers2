@@ -10,15 +10,6 @@ class UsersController < ApplicationController
     render :about
   end
 
-	# def create
- #    	@user = User.new(user_params)
- #    	@user.user_id = current_user.id
- #    	if @user.save(user_params)
- #    	redirect_to user_path
- #    else
- #      render :show
-	#    end
- #  end
 
   def index
   	@user = current_user
@@ -44,6 +35,18 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def followings
+      @user  = User.find(params[:id])
+      @users = @user.followings
+      render 'follow'
+  end
+
+  def followers
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'follower'
   end
 
   private
