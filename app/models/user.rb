@@ -27,6 +27,9 @@ class User < ApplicationRecord
   def following?(other_user)
     self.followings.include?(other_user)
   end
+
+
+
 validates :name, presence: true, length: {minimum: 2, maximum: 20}
 validates :introduction,
   length: { maximum: 50 }

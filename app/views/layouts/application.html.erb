@@ -52,7 +52,11 @@
 </div>
 
 </header>
-
+<% if user_signed_in? %>
+<div class = "search">
+<%= render 'search/search' %>
+</div>
+<% end %>
   <body>
     <div class = "container">
       <div class ="row">
